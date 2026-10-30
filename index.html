@@ -20,7 +20,7 @@
         <div class="profile-tagline">Славный парень</div>
       </div>
       <div class="profile-character" id="profile-character" aria-label="Текущий человечек LEGO"></div>
-      <div class="course-rank"><div class="rank-item"><img src="assets/29d5985ff2fbed8b.png" alt=""><span><small>ТВОЙ РЕЙТИНГ НА КУРСЕ</small><strong>80 место</strong></span></div><div class="rank-item rank-points"><img src="assets/7ea3e75034e077d8.png" alt=""><label for="points-input"><small>ТВОИ БАЛЛЫ</small><span><input id="points-input" type="number" min="0" step="1" value="0" aria-label="Количество баллов"> баллов</span><small>Сохраняется в этом браузере</small></label></div></div>
+      <div class="course-rank"><div class="rank-item"><img src="assets/29d5985ff2fbed8b.png" alt=""><span><small>ТВОЙ РЕЙТИНГ НА КУРСЕ</small><strong>80 место</strong></span></div><div class="rank-item rank-points"><img src="assets/7ea3e75034e077d8.png" alt=""><div class="points-display"><small>ТВОИ БАЛЛЫ</small><span><strong id="points-input" aria-live="polite">0</strong> баллов</span><small>Начисляются за выполненные задания</small></div></div></div>
     </section>
 
     <section class="rank-ladder" aria-label="Ранги и человечки LEGO">
@@ -76,7 +76,6 @@
         <article class="panel comments-panel"><div class="comment-title"><div><p class="eyebrow">ОБСУЖДЕНИЕ</p><h3>Ответы и комментарии</h3></div><span id="comment-count" class="count">0</span></div><div id="comments" class="comments"><p class="muted empty">Выберите урок, чтобы увидеть ответы и обсуждение.</p></div><label class="import-label">Импортировать comments.json<input id="comments-input" type="file" accept="application/json,.json"></label></article>
       </div>
     </section>
-    <footer>Оболочку можно разместить на обычном веб-сервере как статический сайт. Видео храните на видеохостинге, а ссылки и комментарии переносите файлом archive-data.json.</footer>
   </main>
   <div class="name-modal-backdrop" id="name-modal" hidden>
     <section class="name-modal" role="dialog" aria-modal="true" aria-labelledby="name-modal-title" aria-describedby="name-modal-description">
