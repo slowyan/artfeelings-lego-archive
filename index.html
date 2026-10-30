@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#12061f">
+  <title>15.0 Lego. Первая ступень.</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-top"><a href="#top">Тренинги</a></header>
+  <main id="top" class="page">
+    <img class="course-banner" src="assets/22e2c5c8bd0d17d7.png" alt="LEGO. Первая ступень">
+
+    <section class="profile-card" aria-label="Профиль участника">
+      <div class="profile-glow"></div>
+      <div class="profile-copy">
+        <div class="profile-name" id="profile-name">Участник</div>
+        <div class="progress-dots" id="rank-progress-dots" role="progressbar" aria-label="Прогресс по двадцати рангам" aria-valuemin="0" aria-valuemax="20" aria-valuenow="0" aria-valuetext="Начало пути"></div>
+        <div class="profile-tagline">Славный парень</div>
+      </div>
+      <div class="profile-character" id="profile-character" aria-label="Текущий человечек LEGO"></div>
+      <div class="course-rank"><div class="rank-item"><img src="assets/29d5985ff2fbed8b.png" alt=""><span><small>ТВОЙ РЕЙТИНГ НА КУРСЕ</small><strong>80 место</strong></span></div><div class="rank-item rank-points"><img src="assets/7ea3e75034e077d8.png" alt=""><label for="points-input"><small>ТВОИ БАЛЛЫ</small><span><input id="points-input" type="number" min="0" step="1" value="0" aria-label="Количество баллов"> баллов</span><small>Сохраняется в этом браузере</small></label></div></div>
+    </section>
+
+    <section class="rank-ladder" aria-label="Ранги и человечки LEGO">
+      <div class="rank-ladder-heading"><div><p class="eyebrow">ШКАЛА ДОСТИЖЕНИЙ</p><h2>Путь LEGO-чувака</h2></div><p id="rank-progress" class="rank-progress" aria-live="polite"></p></div>
+      <div id="rank-list" class="rank-list"></div>
+    </section>
+
+    <section class="leaderboard" aria-label="Топ курса">
+      <h2>ТОП КУРСА</h2>
+      <div id="leaderboard-list" class="leaderboard-list"></div>
+    </section>
+
+    <section class="course-path" aria-label="Дорожная карта курса">
+      <img src="assets/e39926e4e29ff84d.png" alt="Дорожная карта курса LEGO">
+    </section>
+
+    <section class="module-list" aria-label="Модули курса">
+      <button class="module-card" type="button" data-module="0"><img src="assets/2dbefef67ab2deb0.png" alt="Модуль 0 — Предобучение"><span class="sr-only">Открыть Предобучение</span></button>
+      <button class="module-card tall-fallback" type="button" data-module="1" aria-label="Открыть модуль 1 — Внутренние опоры"><div class="module1-copy"><span>1 модуль</span><strong>ВНУТРЕННИЕ ОПОРЫ</strong><em>ПЕРЕЙТИ К МОДУЛЮ</em></div><img src="assets/794e967341c19ad4.png" alt=""></button>
+      <button class="module-card" type="button" data-module="2"><img src="assets/17c41781251e3f15.png" alt="Модуль 2 — Знакомство"><span class="sr-only">Открыть Знакомство</span></button>
+      <button class="module-card" type="button" data-module="3"><img src="assets/1d228dacd7bc0876.png" alt="Модуль 3 — Привлечение"><span class="sr-only">Открыть Привлечение</span></button>
+      <button class="module-card" type="button" data-module="4"><img src="assets/a35e04525ad17dc3.png" alt="Модуль 4 — Раскрытие"><span class="sr-only">Открыть Раскрытие</span></button>
+      <button class="module-card" type="button" data-module="5"><img src="assets/91d00722ba0fee91.png" alt="Модуль 5 — Влюбление"><span class="sr-only">Открыть Влюбление</span></button>
+      <button class="module-card" type="button" data-module="6"><img src="assets/e5e55ec3f8f5b30b.png" alt="Модуль 6 — Сближение"><span class="sr-only">Открыть Сближение</span></button>
+      <button class="module-card" type="button" data-module="7"><img src="assets/a685773e0c803318.png" alt="Модуль 7 — Лайфстайл"><span class="sr-only">Открыть Лайфстайл</span></button>
+      <button class="module-card" type="button" data-module="8"><img src="assets/afe24930d7d03c26.png" alt="Модуль 8 — Отношения"><span class="sr-only">Открыть Отношения</span></button>
+      <button class="module-card locked" type="button" disabled><img src="assets/f035bb0c307d7587.png" alt="Выбор уровня прохождения — недоступен"></button>
+    </section>
+
+    <section class="module-drawer" id="module-drawer" hidden>
+      <div class="drawer-heading"><div><p id="drawer-kicker" class="eyebrow"></p><h2 id="drawer-title"></h2></div><button id="drawer-close" type="button" aria-label="Закрыть">×</button></div>
+      <div id="drawer-lessons" class="drawer-lessons"></div>
+    </section>
+
+    <section class="lesson-area" id="lesson-area">
+      <div class="episode-picker" aria-label="Выбор модуля и урока"><label><span>МОДУЛЬ</span><select id="module-select" aria-label="Выбрать модуль"></select></label><span class="episode-separator">›</span><label class="episode-choice"><span>УРОК</span><select id="lesson-select" aria-label="Выбрать урок" disabled></select></label></div>
+      <div class="lesson-head"><div><p class="eyebrow" id="lesson-kicker">ВЫБЕРИТЕ УРОК</p><h2 id="lesson-title">Урок появится здесь</h2></div><span class="lesson-pill">Локальная копия</span></div>
+      <div class="video-frame">
+        <div class="video-placeholder" id="video-placeholder"><div class="play">▶</div><strong>Видео урока</strong><span id="video-status">Выберите модуль и урок</span></div>
+        <video id="video" controls hidden></video>
+        <iframe id="hosted-video" title="Видео урока" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen hidden></iframe>
+      </div>
+      <button id="settings-toggle" class="settings-toggle settings-icon-only" type="button" aria-label="Настройки урока" title="Настройки урока" aria-expanded="false" aria-controls="video-settings"><span aria-hidden="true">⚙</span></button>
+      <div id="video-settings" class="video-settings" hidden>
+        <div class="settings-heading"><div><strong>Настройки урока</strong><small>Загрузка файла и ссылка на видео относятся к выбранному уроку.</small></div><button id="settings-close" type="button" aria-label="Закрыть настройки">×</button></div>
+        <div class="video-settings-grid"><label class="upload"><span>Загрузить или заменить видеофайл</span><input id="video-input" type="file" accept="video/*"></label><div id="video-saved" class="video-saved" hidden><span>Видео сохранено в этом браузере</span><button id="video-remove" type="button">Удалить видео</button></div>
+          <div class="hosted-video-tools"><label for="video-url">Ссылка на видео с видеохостинга</label><div class="hosted-video-row"><input id="video-url" type="url" placeholder="https://… (ссылка на видео или embed)" autocomplete="url"><button id="save-video-url" type="button">Сохранить ссылку</button></div><small>Поддерживаются прямые ссылки на MP4/WebM, YouTube, Vimeo и embed-ссылки.</small></div>
+          <div class="archive-tools"><div><strong>Перенос на сайт</strong><p>Экспортируйте данные и положите файл <code>archive-data.json</code> рядом с index.html на сервере.</p></div><div class="archive-buttons"><button id="export-archive" type="button">Экспорт данных сайта</button><label class="import-label">Импортировать данные<input id="archive-input" type="file" accept="application/json,.json"></label></div></div>
+        </div>
+      </div>
+      <div class="lesson-details">
+        <article class="panel"><p class="eyebrow">МАТЕРИАЛЫ УРОКА</p><h3>Текст урока и заметки</h3><div id="lesson-notes" class="notes muted">Выберите урок, чтобы увидеть его материалы.</div><div id="task-completion" class="task-completion" hidden><label><input id="task-complete" type="checkbox"><span>Задание выполнено</span></label><strong>+1 балл</strong></div></article>
+        <article class="panel comments-panel"><div class="comment-title"><div><p class="eyebrow">ОБСУЖДЕНИЕ</p><h3>Ответы и комментарии</h3></div><span id="comment-count" class="count">0</span></div><div id="comments" class="comments"><p class="muted empty">Выберите урок, чтобы увидеть ответы и обсуждение.</p></div><label class="import-label">Импортировать comments.json<input id="comments-input" type="file" accept="application/json,.json"></label></article>
+      </div>
+    </section>
+    <footer>Оболочку можно разместить на обычном веб-сервере как статический сайт. Видео храните на видеохостинге, а ссылки и комментарии переносите файлом archive-data.json.</footer>
+  </main>
+  <div class="name-modal-backdrop" id="name-modal" hidden>
+    <section class="name-modal" role="dialog" aria-modal="true" aria-labelledby="name-modal-title" aria-describedby="name-modal-description">
+      <div class="name-modal-mark" aria-hidden="true">✦</div>
+      <p class="eyebrow">ТВОЙ ПРОФИЛЬ</p>
+      <h2 id="name-modal-title">Как к тебе обращаться?</h2>
+      <p class="name-modal-description" id="name-modal-description">Имя появится над твоим LEGO-человечком и сохранится для следующих посещений.</p>
+      <form id="name-form">
+        <label for="profile-name-input">Твоё имя</label>
+        <input id="profile-name-input" name="name" type="text" maxlength="32" autocomplete="name" placeholder="Например, Алексей" required>
+        <button class="name-submit" type="submit">Сохранить имя <span aria-hidden="true">→</span></button>
+      </form>
+      <small>Имя хранится только в этом браузере.</small>
+    </section>
+  </div>  <nav class="bottom-bar" aria-label="Быстрая панель"><span class="menu-mark">☷</span><span>Действия</span><img src="assets/c39f3e219704d289.png" alt="Знак качества"><span class="chat-mark">▢</span></nav>
+  <script src="app.js"></script>
+</body>
+</html>
