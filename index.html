@@ -23,6 +23,25 @@
       <div class="course-rank"><div class="rank-item"><img src="assets/29d5985ff2fbed8b.png" alt=""><span><small>ТВОЙ РЕЙТИНГ НА КУРСЕ</small><strong>80 место</strong></span></div><div class="rank-item rank-points"><img src="assets/7ea3e75034e077d8.png" alt=""><div class="points-display"><small>ТВОИ БАЛЛЫ</small><span><strong id="points-input" aria-live="polite">0</strong> баллов</span><small>Начисляются за выполненные задания</small></div></div></div>
     </section>
 
+    <div class="admin-launch-row"><button id="admin-open" class="admin-launch" type="button">⚙ Управление курсом</button></div>
+    <section id="admin-panel" class="admin-panel" hidden aria-label="Админка курса">
+      <div class="admin-heading"><div><p class="eyebrow">ЛОКАЛЬНЫЙ РЕДАКТОР</p><h2>Управление курсом</h2></div><button id="admin-close" type="button" aria-label="Закрыть админку">×</button></div>
+      <p class="admin-notice">Правки сохраняются в этом браузере. Чтобы обновить сайт для всех, скачай <code>archive-data.json</code> и замени им файл в репозитории GitHub.</p>
+      <div class="admin-grid">
+        <label>Модуль<select id="admin-module"></select></label>
+        <label>Название модуля<input id="admin-module-name" type="text" maxlength="80"></label>
+        <label class="admin-check"><input id="admin-module-hidden" type="checkbox"> Скрыть модуль на сайте</label>
+        <button id="admin-save-module" type="button">Сохранить модуль</button>
+        <div class="admin-add-module"><input id="admin-new-module" type="text" maxlength="80" placeholder="Название нового модуля"><button id="admin-add-module" type="button">Добавить модуль</button></div>
+        <label>Урок в выбранном модуле<select id="admin-lesson"></select></label>
+        <label>Название урока<input id="admin-lesson-title" type="text" maxlength="140"></label>
+        <label>Тип<select id="admin-lesson-type"><option value="lesson">Урок</option><option value="task">Задание</option><option value="material">Материал</option></select></label>
+        <label class="admin-wide">Текст урока / описание задания<textarea id="admin-lesson-text" rows="9" placeholder="Вставь текст, заметки или описание задания"></textarea></label><label class="admin-file-label admin-wide">Загрузить текст из файла .txt или .md<input id="admin-text-file" type="file" accept=".txt,.md,text/plain,text/markdown"></label>
+        <label class="admin-wide">Ссылка на видео (необязательно)<input id="admin-lesson-video" type="url" placeholder="https://…"></label>
+        <div class="admin-actions admin-wide"><button id="admin-add-lesson" type="button">＋ Новый урок</button><button id="admin-save-lesson" type="button">Сохранить урок</button><button id="admin-toggle-lesson" type="button">Скрыть урок</button><button id="admin-move-up" type="button" aria-label="Поднять урок">↑</button><button id="admin-move-down" type="button" aria-label="Опустить урок">↓</button></div>
+        <div class="admin-actions admin-wide"><button id="admin-export" type="button">Скачать archive-data.json</button><label class="admin-import">Импортировать JSON<input id="admin-import" type="file" accept="application/json,.json"></label><span id="admin-status" role="status"></span></div>
+      </div>
+    </section>
     <section class="rank-ladder" aria-label="Ранги и человечки LEGO">
       <div class="rank-ladder-heading"><div><p class="eyebrow">ШКАЛА ДОСТИЖЕНИЙ</p><h2>Путь LEGO-чувака</h2></div><p id="rank-progress" class="rank-progress" aria-live="polite"></p></div>
       <div id="rank-list" class="rank-list"></div>
