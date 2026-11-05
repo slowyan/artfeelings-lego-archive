@@ -194,3 +194,34 @@
 /* Authentication and database backed account flow */
 body.auth-required{overflow:hidden}body.auth-required>#top,body.auth-required>.site-top,body.auth-required>.bottom-bar,body.auth-required>#name-modal{display:none!important}.auth-screen{min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(ellipse at 50% 35%,#4d137a,#12061f 70%)}.auth-card{width:min(440px,100%);padding:34px;border:1px solid #d28cff44;border-radius:24px;background:linear-gradient(145deg,#1d0b2bf2,#100718f5);box-shadow:0 25px 90px #0008}.auth-card h1{margin:0 0 10px;font-size:clamp(26px,6vw,34px)}.auth-description{color:#cfb9d9;line-height:1.65;font-size:14px;margin:0 0 22px}.auth-card form{display:grid;gap:9px}.auth-card form label{font-size:12px;font-weight:700;color:#ebdef2}.auth-card input{width:100%;border:1px solid #ffffff28;border-radius:11px;padding:13px;background:#0c0612;color:#fff;font:500 15px Manrope,Arial,sans-serif;outline:none;margin-bottom:7px}.auth-card input:focus{border-color:#c75cf0;box-shadow:0 0 0 3px #9d32c52b}.auth-card .name-submit{width:100%;margin-top:5px}.auth-mode-toggle{border:0;background:none;color:#dfb0fa;font:700 13px Manrope,Arial,sans-serif;text-decoration:underline;cursor:pointer;margin-top:18px;padding:5px}.auth-status{min-height:22px;color:#d8b7ed;font-size:13px;line-height:1.5;margin:12px 0 3px}.auth-status.error{color:#ffb4c2}.auth-footnote{color:#a992b4;font-size:11px;line-height:1.5}.auth-screen[hidden]{display:none!important}.admin-launch-row[hidden]{display:none!important}.admin-course-access{margin-top:24px;padding-top:20px;border-top:1px solid #ffffff20}.admin-course-access[hidden]{display:none!important}.admin-user-list{display:grid;gap:8px}.admin-user-row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;padding:12px 14px;border:1px solid #ffffff1c;border-radius:11px;background:#0d071480}.admin-user-row small{display:block;color:#ae93bf;margin-top:3px}.admin-user-row input{width:20px;height:20px;accent-color:#a52fd4}.live-comment-form{margin:18px 0 0;display:grid;gap:9px}.live-comment-form textarea{width:100%;resize:vertical;border:1px solid #ffffff28;border-radius:12px;padding:12px;background:#0d0714;color:#fff;font:500 14px/1.6 Manrope,Arial,sans-serif}.live-comment-form>div{display:flex;justify-content:space-between;align-items:center;gap:10px}.live-comment-form button{border:0;border-radius:10px;padding:10px 16px;background:linear-gradient(100deg,#7618b5,#a329d1);color:white;font:700 13px Manrope,Arial,sans-serif;cursor:pointer}.live-comment-form span,#task-save-status{font-size:12px;color:#cba6e2}.live-comment-form[hidden]{display:none!important}.live-comment{margin-top:12px}.task-completion #task-save-status{margin-left:auto}.task-completion{flex-wrap:wrap}
 @media(max-width:600px){.auth-card{padding:26px 20px;border-radius:19px}.admin-user-row{padding:10px}.live-comment-form>div{align-items:flex-start}.task-completion #task-save-status{flex-basis:100%;margin-left:0}}
+
+/* Training library and account-level course lock. */
+.training-catalog{margin:14px 0 26px;padding:22px;border:1px solid #d28cff35;border-radius:20px;background:linear-gradient(145deg,#1d0b2beF,#100718f5);box-shadow:0 16px 42px #0004}
+.training-catalog-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}
+.training-catalog-heading h1{margin:0;font-size:clamp(24px,4vw,34px);letter-spacing:-.03em}
+.training-catalog-heading p:not(.eyebrow){margin:6px 0 0;color:#cdb9d8;font-size:13px}
+.training-catalog-heading .eyebrow{margin:0 0 6px}
+.training-catalog-heading button{border:1px solid #ffffff25;border-radius:10px;padding:10px 14px;background:#ffffff0a;color:#ebd7fa;font:700 12px Manrope,Arial,sans-serif;cursor:pointer}
+.training-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:12px}
+.training-card{position:relative;min-height:168px;display:flex;flex-direction:column;justify-content:space-between;gap:18px;padding:20px;border:1px solid #d28cff38;border-radius:16px;background:radial-gradient(ellipse at 100% 0%,#a628e626,transparent 62%),linear-gradient(130deg,#29113d,#160a20 72%);overflow:hidden}
+.training-card.is-locked{border-color:#ffffff20;background:linear-gradient(130deg,#1a1022,#100b15)}
+.training-card h2{margin:0 0 7px;font-size:20px;letter-spacing:-.02em}
+.training-card p{max-width:54ch;margin:0;color:#cdb9d8;font-size:13px;line-height:1.55}
+.training-badge{display:inline-flex;align-items:center;gap:7px;margin-bottom:12px;color:#e4adff;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.is-locked .training-badge{color:#b4a8bb}
+.training-action{align-self:flex-start;min-height:40px;display:inline-flex;align-items:center;justify-content:center;padding:0 15px;border:1px solid #d28cff40;border-radius:10px;background:linear-gradient(100deg,#7120a6,#a626c7);color:#fff;font:800 12px Manrope,Arial,sans-serif;text-decoration:none}
+.training-card.is-locked .training-action{border-color:#ffffff1a;background:#ffffff09;color:#c5b8cd}
+.training-action:disabled{cursor:not-allowed}
+body.course-locked .page> :not(#training-catalog){display:none!important}
+body.course-locked .training-catalog{min-height:min(62vh,560px);display:flex;flex-direction:column;justify-content:center;margin-top:clamp(20px,7vh,72px)}
+.admin-user-row{grid-template-columns:minmax(160px,1fr) minmax(220px,auto) auto;gap:12px}
+.admin-user-copy{min-width:0;overflow-wrap:anywhere}
+.admin-user-copy strong{display:block;color:#f8eeff;font-size:13px}
+.admin-user-copy small{display:block;margin-top:4px;color:#ae93bf;font-size:11px}
+.admin-access-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.admin-access-toggle{display:flex;align-items:center;gap:7px;color:#e8d8ef;font-size:12px;white-space:nowrap}
+.admin-access-toggle input{width:17px;height:17px;accent-color:#a52fd4}
+.admin-access-expiry{width:205px;max-width:100%;border:1px solid #ffffff22;border-radius:9px;padding:9px;background:#0d0714;color:#fff;color-scheme:dark;font:500 12px Manrope,Arial,sans-serif}
+.admin-user-row .admin-access-save{min-width:76px;padding:9px 12px}
+@media(max-width:760px){.admin-user-row{grid-template-columns:1fr auto}.admin-access-controls{grid-column:1/-1;justify-content:space-between}.admin-access-expiry{flex:1}}
+@media(max-width:600px){.training-catalog{padding:17px;border-radius:16px}.training-catalog-heading{align-items:flex-start}.training-catalog-heading h1{font-size:25px}.training-catalog-heading button{padding:9px 11px}.training-card{min-height:150px;padding:17px}.admin-user-row{gap:9px}.admin-access-controls{gap:8px}.admin-access-expiry{min-width:0;width:auto}}
