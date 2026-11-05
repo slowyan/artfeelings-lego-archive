@@ -7,8 +7,29 @@
   <title>15.0 Lego. Первая ступень.</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="auth-required">
   <header class="site-top"><a href="#top">Тренинги</a></header>
+  <section id="auth-screen" class="auth-screen" aria-live="polite">
+    <div class="auth-card">
+      <div class="name-modal-mark" aria-hidden="true">✦</div>
+      <p class="eyebrow">ARTFEELINGS · LEGO</p>
+      <h1 id="auth-title">Вход в курс</h1>
+      <p class="auth-description">Войди по email и паролю. Новый аккаунт появится в базе, а доступ к материалам включит администратор.</p>
+      <form id="auth-form">
+        <label id="auth-display-name-label" for="auth-display-name" hidden>Имя на сайте</label>
+        <input id="auth-display-name" name="displayName" type="text" minlength="1" maxlength="32" autocomplete="name" placeholder="Как к тебе обращаться" hidden>
+        <label for="auth-username">Email</label>
+        <input id="auth-username" name="email" type="email" maxlength="254" autocomplete="email" placeholder="name@example.com" required>
+        <label for="auth-password">Пароль</label>
+        <input id="auth-password" name="password" type="password" minlength="10" autocomplete="current-password" placeholder="Не менее 10 символов" required>
+        <button id="auth-submit" class="name-submit" type="submit">Войти <span aria-hidden="true">→</span></button>
+      </form>
+      <button id="auth-mode-toggle" class="auth-mode-toggle" type="button">Нет аккаунта? Зарегистрироваться</button>
+      <button id="auth-logout" class="auth-mode-toggle" type="button" hidden>Выйти из аккаунта</button>
+      <p id="auth-status" class="auth-status" role="status"></p>
+      <small class="auth-footnote">Забытый пароль администратор сбросит вручную.</small>
+    </div>
+  </section>
   <main id="top" class="page">
     <img class="course-banner" src="assets/22e2c5c8bd0d17d7.png" alt="LEGO. Первая ступень">
 
@@ -41,6 +62,11 @@
         <div class="admin-actions admin-wide"><button id="admin-add-lesson" type="button">＋ Новый урок</button><button id="admin-save-lesson" type="button">Сохранить урок</button><button id="admin-toggle-lesson" type="button">Скрыть урок</button><button id="admin-move-up" type="button" aria-label="Поднять урок">↑</button><button id="admin-move-down" type="button" aria-label="Опустить урок">↓</button></div>
         <div class="admin-actions admin-wide"><button id="admin-export" type="button">Скачать archive-data.json</button><label class="admin-import">Импортировать JSON<input id="admin-import" type="file" accept="application/json,.json"></label><span id="admin-status" role="status"></span></div>
       </div>
+      <section id="admin-course-access" class="admin-course-access admin-wide" hidden>
+        <div class="admin-heading"><div><p class="eyebrow">ПОЛЬЗОВАТЕЛИ</p><h3>Доступ к курсу</h3></div><button id="admin-refresh-users" type="button">Обновить</button></div>
+        <p class="admin-notice">Новые аккаунты по умолчанию без доступа. Включай его только для нужных участников.</p>
+        <div id="admin-user-list" class="admin-user-list"></div>
+      </section>
     </section>
     <section class="rank-ladder" aria-label="Ранги и человечки LEGO">
       <div class="rank-ladder-heading"><div><p class="eyebrow">ШКАЛА ДОСТИЖЕНИЙ</p><h2>Путь LEGO-чувака</h2></div><p id="rank-progress" class="rank-progress" aria-live="polite"></p></div>
@@ -91,8 +117,8 @@
         </div>
       </div>
       <div class="lesson-details">
-        <article class="panel"><p class="eyebrow">МАТЕРИАЛЫ УРОКА</p><h3>Текст урока и заметки</h3><div class="lesson-version-switch" role="tablist" aria-label="Версия текста урока"><button id="lesson-version-original" class="lesson-version-tab active" type="button" role="tab" aria-selected="true">Оригинал</button><button id="lesson-version-christian" class="lesson-version-tab" type="button" role="tab" aria-selected="false">Христианская редакция</button></div><div id="lesson-notes" class="notes muted">Выберите урок, чтобы увидеть его материалы.</div><div id="task-completion" class="task-completion" hidden><label><input id="task-complete" type="checkbox"><span>Задание выполнено</span></label><strong>+1 балл</strong></div></article>
-        <article class="panel comments-panel"><div class="comment-title"><div><p class="eyebrow">ОБСУЖДЕНИЕ</p><h3>Ответы и комментарии</h3></div><span id="comment-count" class="count">0</span></div><div id="comments" class="comments"><p class="muted empty">Выберите урок, чтобы увидеть ответы и обсуждение.</p></div><label class="import-label">Импортировать comments.json<input id="comments-input" type="file" accept="application/json,.json"></label></article>
+        <article class="panel"><p class="eyebrow">МАТЕРИАЛЫ УРОКА</p><h3>Текст урока и заметки</h3><div class="lesson-version-switch" role="tablist" aria-label="Версия текста урока"><button id="lesson-version-original" class="lesson-version-tab active" type="button" role="tab" aria-selected="true">Оригинал</button><button id="lesson-version-christian" class="lesson-version-tab" type="button" role="tab" aria-selected="false">Христианская редакция</button></div><div id="lesson-notes" class="notes muted">Выберите урок, чтобы увидеть его материалы.</div><div id="task-completion" class="task-completion" hidden><label><input id="task-complete" type="checkbox"><span>Задание выполнено</span></label><strong>+1 балл</strong><span id="task-save-status" role="status"></span></div></article>
+        <article class="panel comments-panel"><div class="comment-title"><div><p class="eyebrow">ОБСУЖДЕНИЕ</p><h3>Ответы и комментарии</h3></div><span id="comment-count" class="count">0</span></div><div id="comments" class="comments"><p class="muted empty">Выберите урок, чтобы увидеть ответы и обсуждение.</p></div><label class="import-label">Импортировать comments.json<input id="comments-input" type="file" accept="application/json,.json"></label><form id="live-comment-form" class="live-comment-form"><textarea id="live-comment-text" rows="3" maxlength="10000" placeholder="Написать комментарий"></textarea><div><span id="live-comment-status" role="status"></span><button type="submit">Отправить</button></div></form></article>
       </div>
     </section>
   </main>
@@ -110,6 +136,8 @@
       <small>Имя хранится только в этом браузере.</small>
     </section>
   </div>  <nav class="bottom-bar" aria-label="Быстрая панель"><span class="menu-mark">☷</span><span>Действия</span><img src="assets/c39f3e219704d289.png" alt="Знак качества"><span class="chat-mark">▢</span></nav>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="supabase-config.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
