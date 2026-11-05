@@ -62,6 +62,7 @@ drop policy if exists "Read own profile or admin" on public.profiles;
 create policy "Read own profile or admin"
   on public.profiles for select to authenticated
   using (id = (select auth.uid()) or public.is_course_admin());
+grant select on public.profiles to authenticated;
 
 -- Prevent users from changing their own role/access flag through the Data API.
 revoke update on public.profiles from authenticated;
@@ -104,6 +105,7 @@ create policy "Course members read lesson comments"
   using (public.is_course_admin() or exists (
     select 1 from public.profiles p where p.id = (select auth.uid()) and p.has_course_access
   ));
+grant select, insert, update, delete on public.completed_tasks to authenticated;
 create policy "Course members add own comments"
   on public.lesson_comments for insert to authenticated
   with check (user_id = (select auth.uid()) and exists (
@@ -122,3 +124,4 @@ create policy "Authors delete own comments or admin"
   using (public.is_course_admin() or (user_id = (select auth.uid()) and exists (
     select 1 from public.profiles p where p.id = (select auth.uid()) and p.has_course_access
   )));
+grant select, insert, update, delete on public.lesson_comments to authenticated;
