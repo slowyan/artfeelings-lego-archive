@@ -63,8 +63,8 @@
         <label>Название урока<input id="admin-lesson-title" type="text" maxlength="140"></label>
         <label>Тип<select id="admin-lesson-type"><option value="lesson">Урок</option><option value="task">Задание</option><option value="material">Материал</option></select></label>
         <div class="admin-section-title admin-wide"><span>02</span><div><strong>Материалы урока</strong><small>Вставь текст конспекта напрямую или напечатай его здесь.</small></div></div>
-        <label class="admin-text-editor admin-wide"><span>Оригинальная версия</span><textarea id="admin-lesson-original" rows="12" placeholder="Вставь или напиши оригинальный текст урока…"></textarea><small>Отображается во вкладке «Оригинал» у урока.</small></label>
-        <label class="admin-text-editor admin-wide"><span>Твоя редакция</span><textarea id="admin-lesson-christian" rows="12" placeholder="Вставь или напиши свою редакцию урока…"></textarea><small>Отображается во второй вкладке материалов урока.</small></label>
+        <label class="admin-text-editor admin-wide"><span>Оригинальная версия</span><textarea id="admin-lesson-original" rows="12" placeholder="Вставь или напиши оригинальный текст урока…"></textarea><small>Поддерживается Markdown: **жирный**, *курсив*, списки, [текст ссылки](https://example.com), [Кнопка](https://example.com){button}.</small></label>
+        <label class="admin-text-editor admin-wide"><span>Твоя редакция</span><textarea id="admin-lesson-christian" rows="12" placeholder="Вставь или напиши свою редакцию урока…"></textarea><small>Показывается как выбор версии, если поле заполнено. Поддерживается тот же Markdown.</small></label>
         <label class="admin-wide">Ссылка на видео (необязательно)<input id="admin-lesson-video" type="url" placeholder="https://…"></label>
         <div class="admin-actions admin-wide"><button id="admin-add-lesson" type="button">＋ Новый урок</button><button id="admin-save-lesson" type="button">Сохранить урок</button><button id="admin-toggle-lesson" type="button">Скрыть урок</button><button id="admin-move-up" type="button" aria-label="Поднять урок">↑</button><button id="admin-move-down" type="button" aria-label="Опустить урок">↓</button></div>
         <div class="admin-actions admin-wide"><button id="admin-export" type="button">Скачать данные курса</button><label class="admin-import">Импортировать архив<input id="admin-import" type="file" accept="application/json,.json"></label><span id="admin-status" role="status"></span></div>
@@ -126,7 +126,7 @@
         </div>
       </div>
       <div class="lesson-details">
-        <article class="panel"><p class="eyebrow">МАТЕРИАЛЫ УРОКА</p><h3>Текст урока и заметки</h3><div class="lesson-version-switch" role="tablist" aria-label="Версия текста урока"><button id="lesson-version-original" class="lesson-version-tab active" type="button" role="tab" aria-selected="true">Оригинал</button><button id="lesson-version-christian" class="lesson-version-tab" type="button" role="tab" aria-selected="false">Христианская редакция</button></div><div id="lesson-notes" class="notes muted">Выберите урок, чтобы увидеть его материалы.</div><div id="task-completion" class="task-completion" hidden><label><input id="task-complete" type="checkbox"><span>Задание выполнено</span></label><strong>+1 балл</strong><span id="task-save-status" role="status"></span></div></article>
+        <article class="panel"><p class="eyebrow">МАТЕРИАЛЫ УРОКА</p><h3>Текст урока и заметки</h3><div class="lesson-version-switch" role="tablist" aria-label="Версия текста урока" hidden><button id="lesson-version-original" class="lesson-version-tab active" type="button" role="tab" aria-selected="true">Оригинал</button><button id="lesson-version-christian" class="lesson-version-tab" type="button" role="tab" aria-selected="false">Христианская редакция</button></div><div id="lesson-notes" class="notes muted">Выберите урок, чтобы увидеть его материалы.</div><div id="task-completion" class="task-completion" hidden><label><input id="task-complete" type="checkbox"><span>Задание выполнено</span></label><strong>+1 балл</strong><span id="task-save-status" role="status"></span></div></article>
         <article class="panel comments-panel"><div class="comment-title"><div><p class="eyebrow">ОБСУЖДЕНИЕ</p><h3>Ответы и комментарии</h3></div><span id="comment-count" class="count">0</span></div><div id="comments" class="comments"><p class="muted empty">Выберите урок, чтобы увидеть ответы и обсуждение.</p></div><label id="comments-import" class="import-label">Импортировать comments.json<input id="comments-input" type="file" accept="application/json,.json"></label><form id="live-comment-form" class="live-comment-form"><textarea id="live-comment-text" rows="3" maxlength="10000" placeholder="Написать комментарий"></textarea><div><span id="live-comment-status" role="status"></span><button type="submit">Отправить</button></div></form></article>
       </div>
     </section>
@@ -157,6 +157,7 @@
   </div>  <nav class="bottom-bar" aria-label="Быстрая панель"><span class="menu-mark">☷</span><span>Действия</span><img src="assets/c39f3e219704d289.png" alt="Знак качества"><span class="chat-mark">▢</span></nav>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script src="supabase-config.js"></script>
+  <script src="markdown.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
