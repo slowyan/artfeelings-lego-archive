@@ -66,10 +66,13 @@ $$;
 revoke all on function public.admin_list_course_users() from public;
 grant execute on function public.admin_list_course_users() to authenticated;
 
--- Expired grants no longer authorize task or comment activity.
+-- Expired grants stop task progress; comments remain available until access is revoked.
 drop policy if exists "Read tasks for course members" on public.completed_tasks;
 drop policy if exists "Complete tasks for course members" on public.completed_tasks;
 drop policy if exists "Undo tasks for course members" on public.completed_tasks;
+drop policy if exists "Read tasks for active course members" on public.completed_tasks;
+drop policy if exists "Complete tasks for active course members" on public.completed_tasks;
+drop policy if exists "Undo tasks for active course members" on public.completed_tasks;
 create policy "Read tasks for active course members"
   on public.completed_tasks for select to authenticated
   using (
@@ -106,22 +109,22 @@ drop policy if exists "Course members read lesson comments" on public.lesson_com
 drop policy if exists "Course members add own comments" on public.lesson_comments;
 drop policy if exists "Authors edit own comments or admin" on public.lesson_comments;
 drop policy if exists "Authors delete own comments or admin" on public.lesson_comments;
-create policy "Active course members read lesson comments"
+drop policy if exists "Active course members read lesson comments" on public.lesson_comments;
+drop policy if exists "Active course members add own comments" on public.lesson_comments;
+create policy "Course members read lesson comments after expiry"
   on public.lesson_comments for select to authenticated
   using (
     public.is_course_admin() or exists (
       select 1 from public.profiles p
       where p.id = (select auth.uid()) and p.has_course_access
-        and (p.course_access_until is null or p.course_access_until > now())
     )
   );
-create policy "Active course members add own comments"
+create policy "Course members add own comments after expiry"
   on public.lesson_comments for insert to authenticated
   with check (
     user_id = (select auth.uid()) and exists (
       select 1 from public.profiles p
       where p.id = (select auth.uid()) and p.has_course_access
-        and (p.course_access_until is null or p.course_access_until > now())
     )
   );
 create policy "Authors edit own comments or admin"
@@ -130,14 +133,12 @@ create policy "Authors edit own comments or admin"
     public.is_course_admin() or (user_id = (select auth.uid()) and exists (
       select 1 from public.profiles p
       where p.id = (select auth.uid()) and p.has_course_access
-        and (p.course_access_until is null or p.course_access_until > now())
     ))
   )
   with check (
     public.is_course_admin() or (user_id = (select auth.uid()) and exists (
       select 1 from public.profiles p
       where p.id = (select auth.uid()) and p.has_course_access
-        and (p.course_access_until is null or p.course_access_until > now())
     ))
   );
 create policy "Authors delete own comments or admin"
@@ -146,6 +147,5 @@ create policy "Authors delete own comments or admin"
     public.is_course_admin() or (user_id = (select auth.uid()) and exists (
       select 1 from public.profiles p
       where p.id = (select auth.uid()) and p.has_course_access
-        and (p.course_access_until is null or p.course_access_until > now())
     ))
   );

@@ -225,3 +225,16 @@ body.course-locked .training-catalog{min-height:min(62vh,560px);display:flex;fle
 .admin-user-row .admin-access-save{min-width:76px;padding:9px 12px}
 @media(max-width:760px){.admin-user-row{grid-template-columns:1fr auto}.admin-access-controls{grid-column:1/-1;justify-content:space-between}.admin-access-expiry{flex:1}}
 @media(max-width:600px){.training-catalog{padding:17px;border-radius:16px}.training-catalog-heading{align-items:flex-start}.training-catalog-heading h1{font-size:25px}.training-catalog-heading button{padding:9px 11px}.training-card{min-height:150px;padding:17px}.admin-user-row{gap:9px}.admin-access-controls{gap:8px}.admin-access-expiry{min-width:0;width:auto}}
+.admin-access-presets{display:flex;gap:5px;flex-wrap:wrap}
+.admin-user-row .admin-access-presets button{min-height:32px;padding:6px 9px;border-radius:8px;font-size:10px;white-space:nowrap}
+.admin-user-row .admin-access-expiry:disabled{opacity:.55;cursor:not-allowed}
+.course-expired-note{display:none}
+body.course-expired .page> :not(#training-catalog):not(#lesson-area){display:none!important}
+body.course-expired #lesson-area .lesson-head,
+body.course-expired #lesson-area .video-frame,
+body.course-expired #lesson-area .settings-toggle,
+body.course-expired #lesson-area #video-settings,
+body.course-expired #lesson-area .lesson-details>.panel:not(.comments-panel){display:none!important}
+body.course-expired #lesson-area .course-expired-note{display:block;margin:16px 0;padding:13px 16px;border:1px solid #d28cff30;border-radius:12px;background:#1d0b2b;color:#e5c8f5;font-size:13px;line-height:1.55}
+body.course-expired #lesson-area .lesson-details{display:block}
+body.course-expired #lesson-area .comments-panel{margin-top:16px}
