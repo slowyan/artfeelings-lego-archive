@@ -238,3 +238,45 @@ body.course-expired #lesson-area .lesson-details>.panel:not(.comments-panel){dis
 body.course-expired #lesson-area .course-expired-note{display:block;margin:16px 0;padding:13px 16px;border:1px solid #d28cff30;border-radius:12px;background:#1d0b2b;color:#e5c8f5;font-size:13px;line-height:1.55}
 body.course-expired #lesson-area .lesson-details{display:block}
 body.course-expired #lesson-area .comments-panel{margin-top:16px}
+.admin-panel{padding:clamp(18px,3vw,32px);background:radial-gradient(ellipse at 5% 0%,#68229a30,transparent 35%),linear-gradient(145deg,#1b0a29f7,#100718fa);border-color:#cb78f04a}
+.admin-panel>.admin-heading{align-items:flex-start;padding-bottom:18px;border-bottom:1px solid #ffffff18}
+.admin-panel>.admin-heading .eyebrow{margin-bottom:8px;color:#d58bff}
+.admin-subtitle{margin:6px 0 0;color:#bba7c8;font-size:13px;line-height:1.55}
+.admin-panel>.admin-notice{max-width:none;margin:14px 0 20px;padding:12px 15px;border:1px solid #cb78f025;border-radius:12px;background:#9c34cb0c}
+.admin-grid{gap:15px}
+.admin-section-title{display:flex;align-items:center;gap:12px;margin:5px 0 0;padding:14px 16px;border:1px solid #c779f02a;border-radius:13px;background:linear-gradient(100deg,#6d258c20,#ffffff03)}
+.admin-section-title>span{display:grid;place-items:center;width:32px;height:32px;border-radius:10px;background:#892bb54a;color:#edc7ff;font-size:11px;font-weight:800}
+.admin-section-title strong,.admin-section-title small{display:block}
+.admin-section-title strong{font-size:14px;color:#fff}
+.admin-section-title small{margin-top:3px;color:#bca7cb;font-size:11px;font-weight:500}
+.admin-grid>label.admin-text-editor{gap:9px;padding:16px;border:1px solid #c779f033;border-radius:14px;background:#0d071482;color:#f1e7f8}
+.admin-text-editor>span{font-size:13px;font-weight:800;color:#f4d8ff}
+.admin-text-editor textarea{min-height:250px;resize:vertical;font:500 14px/1.75 Manrope,Arial,sans-serif;letter-spacing:.005em;padding:15px 16px;background:#09050f;border-color:#ffffff24}
+.admin-text-editor textarea:focus{border-color:#c65de9;box-shadow:0 0 0 3px #ad49d326}
+.admin-text-editor>small{color:#a990b9;font-size:11px;font-weight:500}
+.admin-panel .admin-actions{align-items:center}
+.admin-panel .admin-actions #admin-save-lesson{background:linear-gradient(110deg,#9028c3,#bd36dc);box-shadow:0 7px 20px #9b28c33b}
+.admin-course-access{padding-top:24px}
+.admin-course-access>.admin-heading{margin-bottom:8px}
+.admin-user-toolbar{display:grid;grid-template-columns:minmax(200px,1fr) minmax(180px,auto) auto;align-items:end;gap:12px;margin:16px 0;padding:14px;border:1px solid #ffffff17;border-radius:14px;background:#0c061599}
+.admin-user-search,.admin-user-sort{display:grid;gap:6px;color:#bda6cd;font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.admin-user-search{position:relative}
+.admin-user-search>span{position:absolute;left:12px;top:25px;color:#d998ff;font-size:21px;line-height:1}
+.admin-user-search input,.admin-user-sort select{width:100%;min-height:40px;border:1px solid #ffffff20;border-radius:10px;background:#160b20;color:#f7edff;padding:9px 12px;font:500 12px Manrope,Arial,sans-serif}
+.admin-user-search input{padding-left:38px}
+.admin-user-search input:focus,.admin-user-sort select:focus{outline:0;border-color:#bc54e4;box-shadow:0 0 0 3px #a130c329}
+.admin-user-count{padding:0 2px 12px;color:#a78cb8;font-size:11px;white-space:nowrap}
+.admin-user-list{gap:10px}
+.admin-user-row{grid-template-columns:minmax(240px,1fr) minmax(280px,auto) auto;align-items:start;padding:15px;border-color:#ffffff20;border-radius:14px;background:linear-gradient(125deg,#170b20,#0d0714);transition:border-color .16s,transform .16s}
+.admin-user-row:hover{border-color:#bb5bda66;transform:translateY(-1px)}
+.admin-user-copy strong{font-size:14px}
+.admin-user-copy>small{font-size:11px}
+.admin-user-stats{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 7px}
+.admin-user-stats span{display:inline-flex;align-items:center;min-height:25px;padding:4px 8px;border:1px solid #ffffff16;border-radius:8px;background:#ffffff08;color:#d9c7e4;font-size:10px}
+.admin-user-stats .admin-user-points{color:#f6d985;background:#bc8d1b12;border-color:#f6d9852e;font-weight:800}
+.admin-user-stats .admin-user-activity{color:#c3aecf}
+.admin-user-access-info{color:#d5b8e7!important}
+.admin-access-controls{max-width:400px;justify-content:flex-end}
+.admin-users-empty{grid-column:1/-1;margin:0;padding:24px;border:1px dashed #ffffff22;border-radius:12px;color:#bda9c8;text-align:center;font-size:13px}
+@media(max-width:900px){.admin-user-row{grid-template-columns:minmax(0,1fr) auto}.admin-user-row .admin-user-copy{grid-column:1/-1}.admin-access-controls{grid-column:1/-1;max-width:none;justify-content:flex-start}.admin-user-row .admin-access-save{grid-column:2;grid-row:2}}
+@media(max-width:600px){.admin-panel{padding:16px}.admin-grid{grid-template-columns:1fr}.admin-wide{grid-column:1}.admin-user-toolbar{grid-template-columns:1fr 1fr;gap:9px;padding:11px}.admin-user-search{grid-column:1/-1}.admin-user-count{padding:0;align-self:center}.admin-text-editor textarea{min-height:220px;font-size:13px}.admin-user-row{grid-template-columns:1fr auto}.admin-user-row .admin-user-copy{grid-column:1/-1}.admin-access-controls{grid-column:1/-1}.admin-user-row .admin-access-save{grid-column:1/-1;grid-row:auto}}

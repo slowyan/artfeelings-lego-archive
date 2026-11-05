@@ -50,9 +50,10 @@
 
     <div class="admin-launch-row"><button id="admin-open" class="admin-launch" type="button">⚙ Управление курсом</button></div>
     <section id="admin-panel" class="admin-panel" hidden aria-label="Админка курса">
-      <div class="admin-heading"><div><p class="eyebrow">ЛОКАЛЬНЫЙ РЕДАКТОР</p><h2>Управление курсом</h2></div><button id="admin-close" type="button" aria-label="Закрыть админку">×</button></div>
-      <p class="admin-notice">Правки сохраняются в этом браузере. Чтобы обновить сайт для всех, скачай <code>archive-data.json</code> и замени им файл в репозитории GitHub.</p>
+      <div class="admin-heading"><div><p class="eyebrow">ПАНЕЛЬ АДМИНИСТРАТОРА</p><h2>Управление курсом</h2><p class="admin-subtitle">Структура, материалы уроков и доступ участников — в одном месте.</p></div><button id="admin-close" type="button" aria-label="Закрыть админку">×</button></div>
+      <p class="admin-notice">Вставляй конспекты прямо в поля ниже. Изменения сохраняются в этом браузере; чтобы опубликовать их для всех, используй «Скачать данные курса» и обнови файл в репозитории.</p>
       <div class="admin-grid">
+        <div class="admin-section-title admin-wide"><span>01</span><div><strong>Структура курса</strong><small>Выбери модуль, переименуй его или добавь новый.</small></div></div>
         <label>Модуль<select id="admin-module"></select></label>
         <label>Название модуля<input id="admin-module-name" type="text" maxlength="80"></label>
         <label class="admin-check"><input id="admin-module-hidden" type="checkbox"> Скрыть модуль на сайте</label>
@@ -61,14 +62,17 @@
         <label>Урок в выбранном модуле<select id="admin-lesson"></select></label>
         <label>Название урока<input id="admin-lesson-title" type="text" maxlength="140"></label>
         <label>Тип<select id="admin-lesson-type"><option value="lesson">Урок</option><option value="task">Задание</option><option value="material">Материал</option></select></label>
-        <p class="admin-wide admin-hint">Для каждого урока можно хранить две независимые версии. Выбери нужную в блоке материалов под видео.</p><label class="admin-wide">Оригинал<textarea id="admin-lesson-original" rows="8" placeholder="Вставь оригинальный текст урока"></textarea></label><label class="admin-file-label admin-wide">Загрузить оригинал из .txt или .md<input id="admin-original-file" type="file" accept=".txt,.md,text/plain,text/markdown"></label><label class="admin-wide">Христианская редакция<textarea id="admin-lesson-christian" rows="8" placeholder="Твоя редакция этого урока"></textarea></label><label class="admin-file-label admin-wide">Загрузить редакцию из .txt или .md<input id="admin-christian-file" type="file" accept=".txt,.md,text/plain,text/markdown"></label>
+        <div class="admin-section-title admin-wide"><span>02</span><div><strong>Материалы урока</strong><small>Вставь текст конспекта напрямую или напечатай его здесь.</small></div></div>
+        <label class="admin-text-editor admin-wide"><span>Оригинальная версия</span><textarea id="admin-lesson-original" rows="12" placeholder="Вставь или напиши оригинальный текст урока…"></textarea><small>Отображается во вкладке «Оригинал» у урока.</small></label>
+        <label class="admin-text-editor admin-wide"><span>Твоя редакция</span><textarea id="admin-lesson-christian" rows="12" placeholder="Вставь или напиши свою редакцию урока…"></textarea><small>Отображается во второй вкладке материалов урока.</small></label>
         <label class="admin-wide">Ссылка на видео (необязательно)<input id="admin-lesson-video" type="url" placeholder="https://…"></label>
         <div class="admin-actions admin-wide"><button id="admin-add-lesson" type="button">＋ Новый урок</button><button id="admin-save-lesson" type="button">Сохранить урок</button><button id="admin-toggle-lesson" type="button">Скрыть урок</button><button id="admin-move-up" type="button" aria-label="Поднять урок">↑</button><button id="admin-move-down" type="button" aria-label="Опустить урок">↓</button></div>
-        <div class="admin-actions admin-wide"><button id="admin-export" type="button">Скачать archive-data.json</button><label class="admin-import">Импортировать JSON<input id="admin-import" type="file" accept="application/json,.json"></label><span id="admin-status" role="status"></span></div>
+        <div class="admin-actions admin-wide"><button id="admin-export" type="button">Скачать данные курса</button><label class="admin-import">Импортировать архив<input id="admin-import" type="file" accept="application/json,.json"></label><span id="admin-status" role="status"></span></div>
       </div>
       <section id="admin-course-access" class="admin-course-access admin-wide" hidden>
-        <div class="admin-heading"><div><p class="eyebrow">ПОЛЬЗОВАТЕЛИ</p><h3>Доступ к курсу</h3></div><button id="admin-refresh-users" type="button">Обновить</button></div>
+        <div class="admin-heading"><div><p class="eyebrow">УЧАСТНИКИ</p><h3>Пользователи и доступ</h3></div><button id="admin-refresh-users" type="button">↻ Обновить список</button></div>
         <p class="admin-notice">Новые аккаунты видят каталог тренингов, но LEGO закрыт до выдачи доступа. Укажи дату окончания или оставь поле пустым для бессрочного доступа.</p>
+        <div class="admin-user-toolbar"><label class="admin-user-search"><span aria-hidden="true">⌕</span><input id="admin-user-search" type="search" placeholder="Найти по имени или email"></label><label class="admin-user-sort">Сортировка<select id="admin-user-sort"><option value="activity">По последней активности</option><option value="points">По баллам</option><option value="name">По имени</option><option value="created">По регистрации</option></select></label><span id="admin-user-count" class="admin-user-count"></span></div>
         <div id="admin-user-list" class="admin-user-list"></div>
       </section>
     </section>
