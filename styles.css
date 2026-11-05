@@ -298,3 +298,22 @@ body.course-expired #lesson-area .comments-panel{margin-top:16px}
 .site-footer-note{margin:16px 0 0;color:#927ca0;font-size:10px;line-height:1.6;text-align:right}
 @media(max-width:900px){.site-footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.site-footer{width:calc(100% - 28px);margin:18px auto 76px;padding:18px;border-radius:17px}.site-footer-heading{align-items:flex-start;flex-direction:column;gap:8px}.site-footer-heading>p{text-align:left}.site-footer-grid{grid-template-columns:1fr}.footer-card{padding:15px}.site-footer-note{text-align:left}}
+body:not(.auth-required) .site-footer{display:none}
+body.auth-required{display:flex;min-height:100vh;flex-direction:column;overflow-x:hidden;overflow-y:auto;background:radial-gradient(ellipse at 50% 0%,#47146a 0%,#170923 52%,#0b0611 100%)}
+body.auth-required .auth-screen{flex:1;min-height:500px;padding:28px 20px 14px;background:none}
+body.auth-required .auth-card{width:min(430px,100%);padding:30px 32px;border-color:#d28cff38;background:linear-gradient(155deg,#1c0a2bf5,#100819fa);box-shadow:0 24px 80px #0007,0 0 50px #8224b01c}
+body.auth-required .site-footer{display:block;width:min(1100px,calc(100% - 40px));margin:0 auto 22px;padding:21px 24px 16px;border-radius:18px;border-color:#d28cff29;background:linear-gradient(120deg,#1a0b26ef,#12091aef);box-shadow:0 14px 44px #0005}
+body.auth-required .site-footer:before{left:22px;right:22px;background:linear-gradient(90deg,transparent,#d28cff7a,transparent)}
+body.auth-required .site-footer-heading{align-items:center;margin-bottom:14px;padding-bottom:12px}
+body.auth-required .site-footer-heading .eyebrow{margin-bottom:4px;font-size:9px}
+body.auth-required .site-footer-heading h2{font-size:20px}
+body.auth-required .site-footer-heading>p{font-size:10px}
+body.auth-required .site-footer-grid{grid-template-columns:1fr 1.15fr 1fr 1.35fr;gap:9px}
+body.auth-required .footer-card{padding:12px 13px;border-color:#ffffff14;border-radius:11px;background:#0b061299}
+body.auth-required .footer-card h3{margin-bottom:8px;font-size:11px}
+body.auth-required .footer-card p,body.auth-required .footer-card li{margin-bottom:5px;font-size:10px;line-height:1.55}
+body.auth-required .footer-card a{margin:6px 0;font-size:11px}
+body.auth-required .footer-card ul{margin-top:6px}
+body.auth-required .site-footer-note{margin-top:10px;font-size:9px}
+@media(max-width:850px){body.auth-required .site-footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}body.auth-required .auth-screen{min-height:440px}}
+@media(max-width:560px){body.auth-required .auth-screen{min-height:unset;padding:22px 14px 14px}.auth-card{padding:26px 20px}body.auth-required .site-footer{width:calc(100% - 28px);margin:0 auto 14px;padding:16px 15px 12px;border-radius:15px}body.auth-required .site-footer-heading{align-items:flex-start;flex-direction:column;gap:5px}body.auth-required .site-footer-heading>p{text-align:left}body.auth-required .site-footer-grid{grid-template-columns:1fr 1fr;gap:7px}body.auth-required .footer-card{padding:11px 10px}body.auth-required .footer-card h3{font-size:10px}body.auth-required .footer-card p,body.auth-required .footer-card li{font-size:9px}body.auth-required .footer-card a{font-size:10px;overflow-wrap:anywhere}}
